@@ -1,13 +1,8 @@
 # ninja log v5
-1	62	1677952923757229392	CMakeFiles/Projet_Ile_Maudite.dir/sources/Map.c.o	84bd9a875b37521d
+1	44	1677952981027486804	CMakeFiles/Projet_Ile_Maudite.dir/sources/Map.c.o	84bd9a875b37521d
 50	86	1677952923785210225	CMakeFiles/Projet_Ile_Maudite.dir/sources/getch.c.o	66e7e5ed99594874
-86	114	1677952923813191059	Projet_Ile_Maudite	7074679103acf6eb
-1	54	1677952923753232130	CMakeFiles/Projet_Ile_Maudite.dir/sources/Player.c.o	6af6b042444fd3c0
-0	55	1677952923753232130	CMakeFiles/Projet_Ile_Maudite.dir/main.c.o	d1bcc04085122d99
-5	50	1677952923749234868	CMakeFiles/Projet_Ile_Maudite.dir/sources/Treasure.c.o	ae987ac4d1332470
-0	33	1677952980971514535	build.ninja	f7534d8bdb83b2da
+45	67	1677952981051474919	Projet_Ile_Maudite	7074679103acf6eb
+0	33	1677953280855578943	build.ninja	f7534d8bdb83b2da
+0	44	1677952981027486804	CMakeFiles/Projet_Ile_Maudite.dir/sources/Player.c.o	6af6b042444fd3c0
 0	37	1677952981019490765	CMakeFiles/Projet_Ile_Maudite.dir/main.c.o	d1bcc04085122d99
 1	41	1677952981023488784	CMakeFiles/Projet_Ile_Maudite.dir/sources/Treasure.c.o	ae987ac4d1332470
-0	44	1677952981027486804	CMakeFiles/Projet_Ile_Maudite.dir/sources/Player.c.o	6af6b042444fd3c0
-1	44	1677952981027486804	CMakeFiles/Projet_Ile_Maudite.dir/sources/Map.c.o	84bd9a875b37521d
-45	67	1677952981051474919	Projet_Ile_Maudite	7074679103acf6eb
