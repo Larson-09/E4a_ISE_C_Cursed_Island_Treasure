@@ -12,6 +12,7 @@
 #define HOTKEY_BOT  's'
 #define HOTKEY_RIGHT  'd'
 #define HOTKEY_LEFT  'q'
+#define HOTKEY_EXIT 'e'
 
 #define EMPTY_CASE_ICON ' '
 #define PLAYER_ICON 'J'

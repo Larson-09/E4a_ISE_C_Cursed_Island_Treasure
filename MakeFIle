@@ -1,0 +1,8 @@
+C_FILES :=$(wildcard sources/*.c main.c)
+H_FILES :=$(headers/*.h headers/utils/*.h)
+
+.SILENT:all
+
+all:
+	gcc $(C_FILES) $(H_FILES) -o executable
+	./executable
