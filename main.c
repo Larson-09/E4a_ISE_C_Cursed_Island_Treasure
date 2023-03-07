@@ -25,6 +25,7 @@ int main()
                 break;
             case HOTKEY_RIGHT:
                 SM_input_right();
+                break;
             case HOTKEY_EXIT:
                 exit(0);
             default:

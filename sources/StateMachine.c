@@ -97,8 +97,7 @@ static void process_input(input_t input)
     transition_t tr_to_do;
     tr_to_do = tab_transition[current_state][input];
 
-    if(tr_to_do.target_state != ST_FORGET)
-    {
+    if(tr_to_do.target_state != ST_FORGET) {
         current_state = tr_to_do.target_state;
         perform_action(tr_to_do.action);
     }
@@ -132,7 +131,7 @@ static void perform_action(action_t action)
             break;
 
         case A_CHECK_WIN:
-            printf("");
+            printf("\0");
             Coordinates player_coords = Player_get_pos(player);
             Coordinates treasure_coords = Treasure_get_pos();
             bool is_win = player_coords.i == treasure_coords.i && player_coords.j == treasure_coords.j;
@@ -143,6 +142,7 @@ static void perform_action(action_t action)
             else{
                 process_input(LOSE);
             }
+
             break;
 
         default:
@@ -160,5 +160,7 @@ void manage_move(char c){
         Map_set_case(PLAYER_ICON, Player_get_pos(player));
         system("clear");
         Map_print();
+
+        process_input(NEXT);
     }
 }
