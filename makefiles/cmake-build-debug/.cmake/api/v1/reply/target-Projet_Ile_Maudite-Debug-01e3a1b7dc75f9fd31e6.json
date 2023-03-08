@@ -1,0 +1,210 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "Projet_Ile_Maudite"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 6,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -fdiagnostics-color=always"
+				},
+				{
+					"fragment" : "-std=gnu11"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "11"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				4,
+				5,
+				6,
+				10,
+				13,
+				15
+			]
+		}
+	],
+	"id" : "Projet_Ile_Maudite::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "Projet_Ile_Maudite",
+	"nameOnDisk" : "Projet_Ile_Maudite",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				4,
+				5,
+				6,
+				10,
+				13,
+				15
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				3,
+				7,
+				8,
+				9,
+				11,
+				12,
+				14
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/headers/Player.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/headers/Map.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/headers/Treasure.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/sources/Player.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/sources/Map.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/sources/Treasure.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/headers/utils/Coordinates.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/headers/utils/Direction.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/conf.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/sources/getch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/headers/getch.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/headers/Entity.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/sources/Entity.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/headers/StateMachine.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/jordan/Documents/ESEO/S8/C Avanc\u00e9 (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/sources/StateMachine.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}
