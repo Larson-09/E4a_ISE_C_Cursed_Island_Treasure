@@ -1,8 +1,0 @@
-//
-// Created by jordan on 04/03/23.
-//
-
-#ifndef PROJET_ILE_MAUDITE_ENTITY_H
-#define PROJET_ILE_MAUDITE_ENTITY_H
-
-#endif //PROJET_ILE_MAUDITE_ENTITY_H
