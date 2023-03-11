@@ -17,9 +17,6 @@ void Map_init(){
         grid[i] = (char *)malloc(NB_GRID_COLS * sizeof(char));
     }
 
-    // Init treasure
-    Treasure_init();
-
     // Fill the grid
     for(int i=0; i< NB_GRID_ROWS; i++)
     {

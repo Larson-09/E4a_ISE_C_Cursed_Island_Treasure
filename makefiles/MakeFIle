@@ -1,0 +1,8 @@
+C_FILES :=$(wildcard ../sources/*.c ../sources/utils/*.c ../main.c)
+H_FILES :=$(wildcard ../headers/*.h ../headers/utils/*.h)
+
+.SILENT:all
+
+all:
+	gcc $(C_FILES) $(H_FILES) -o ../CursedIslandTreasure
+	.././CursedIslandTreasure

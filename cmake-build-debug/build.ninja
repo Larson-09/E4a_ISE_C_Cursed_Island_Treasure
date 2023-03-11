@@ -79,6 +79,18 @@ build CMakeFiles/Projet_Ile_Maudite.dir/sources/getch.c.o: C_COMPILER__Projet_Il
   OBJECT_DIR = CMakeFiles/Projet_Ile_Maudite.dir
   OBJECT_FILE_DIR = CMakeFiles/Projet_Ile_Maudite.dir/sources
 
+build CMakeFiles/Projet_Ile_Maudite.dir/sources/Entity.c.o: C_COMPILER__Projet_Ile_Maudite_Debug /home/jordan/Documents/ESEO/S8/C$ Avancé$ (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/sources/Entity.c || cmake_object_order_depends_target_Projet_Ile_Maudite
+  DEP_FILE = CMakeFiles/Projet_Ile_Maudite.dir/sources/Entity.c.o.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  OBJECT_DIR = CMakeFiles/Projet_Ile_Maudite.dir
+  OBJECT_FILE_DIR = CMakeFiles/Projet_Ile_Maudite.dir/sources
+
+build CMakeFiles/Projet_Ile_Maudite.dir/sources/StateMachine.c.o: C_COMPILER__Projet_Ile_Maudite_Debug /home/jordan/Documents/ESEO/S8/C$ Avancé$ (ISE)/Projet_Ile_Maudite/E4a_ISE_C_Cursed_Island_Treasure/sources/StateMachine.c || cmake_object_order_depends_target_Projet_Ile_Maudite
+  DEP_FILE = CMakeFiles/Projet_Ile_Maudite.dir/sources/StateMachine.c.o.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  OBJECT_DIR = CMakeFiles/Projet_Ile_Maudite.dir
+  OBJECT_FILE_DIR = CMakeFiles/Projet_Ile_Maudite.dir/sources
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Projet_Ile_Maudite
@@ -87,7 +99,7 @@ build CMakeFiles/Projet_Ile_Maudite.dir/sources/getch.c.o: C_COMPILER__Projet_Il
 #############################################
 # Link the executable Projet_Ile_Maudite
 
-build Projet_Ile_Maudite: C_EXECUTABLE_LINKER__Projet_Ile_Maudite_Debug CMakeFiles/Projet_Ile_Maudite.dir/main.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/Player.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/Map.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/Treasure.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/getch.c.o
+build Projet_Ile_Maudite: C_EXECUTABLE_LINKER__Projet_Ile_Maudite_Debug CMakeFiles/Projet_Ile_Maudite.dir/main.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/Player.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/Map.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/Treasure.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/getch.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/Entity.c.o CMakeFiles/Projet_Ile_Maudite.dir/sources/StateMachine.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Projet_Ile_Maudite.dir
   POST_BUILD = :
