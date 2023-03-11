@@ -3,14 +3,26 @@
 //
 #include "Coordinates.h"
 #include <stdlib.h>
+#include <stdbool.h>
 #include <time.h>
 
-Coordinates Coordinates_generate_random_coords(int max_i, int max_j){
-    srand(time(NULL));
-    int i = rand() % (NB_GRID_ROWS);
-    int j  = rand() % (NB_GRID_COLS);
+static bool is_timer_set = false;
 
-    Coordinates *coords;
-    coords->i = i;
-    coords->j = j;
+Coordinates Coordinates_generate_random_coords(int max_i, int max_j){
+
+    if(!is_timer_set){
+        srand(time(NULL));
+        is_timer_set = true;
+    }
+
+
+    int i = rand() % (max_i);
+    int j  = rand() % (max_j);
+
+    // Coordinates *coords = malloc(sizeof(Coordinates));
+    Coordinates coords;
+    coords.i = i;
+    coords.j = j;
+
+    return coords;
 }

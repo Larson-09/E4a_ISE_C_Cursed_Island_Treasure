@@ -34,3 +34,29 @@ bool Player_move(Player *this, char direction);
 Coordinates Player_get_pos(Player *this);
 
 #endif //PROJET_ILE_MAUDITE_PLAYER_H
+
+/**
+ * @brief   Returns the number of health points of the player
+ * @param   this    The player
+ * @return  Number of health points of the player
+ */
+int Player_get_hp(Player *this);
+
+/**
+ * @brief   Retrieve some health points from the player
+ */
+void Player_lose_hp(Player *this, int nb_hp);
+
+/**
+ * @brief   Check if the player is dead (0 hp)
+ * @param   this    The player
+ * @return  True if the player is dead
+ */
+bool Player_is_dead(Player *this);
+
+/**
+ * @brief   Free all Player instances memory
+ */
+void Player_free_all();
+
+

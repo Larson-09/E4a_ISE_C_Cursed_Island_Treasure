@@ -3,14 +3,12 @@
 //
 #include <stdlib.h>
 #include <stdio.h>
-#include "../conf.h"
 #include "../headers/Map.h"
-#include "../headers/Treasure.h"
-#include "../headers/Player.h"
 
 static char **grid;
 
 void Map_init(){
+
     // Memory allocation
     grid = (char **) malloc(NB_GRID_ROWS * sizeof(char *));
     for (int i = 0; i < NB_GRID_ROWS; i++) {
@@ -28,6 +26,8 @@ void Map_init(){
 }
 
 void Map_print(){
+
+    printf("\n CURSED ISLAND TREASURE \n \n");
 
     // Add treasure
     Coordinates treasure_coords = Treasure_get_pos();
@@ -64,4 +64,8 @@ char Map_get_case(Coordinates coords){
 
 void Map_set_case(char content, Coordinates coords){
     grid[coords.i][coords.j] = content;
+}
+
+void Map_free(){
+    free(grid);
 }

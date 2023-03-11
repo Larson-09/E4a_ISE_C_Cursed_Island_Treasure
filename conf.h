@@ -8,6 +8,9 @@
 #define NB_GRID_ROWS 5
 #define NB_GRID_COLS 5
 
+#define NB_TRAPS 5
+#define PLAYER_NB_HP 10
+
 #define HOTKEY_TOP  'z'
 #define HOTKEY_BOT  's'
 #define HOTKEY_RIGHT  'd'
@@ -16,6 +19,10 @@
 
 #define EMPTY_CASE_ICON ' '
 #define PLAYER_ICON 'J'
-#define TREASURE_ICON 'T'
+#define PIRATE_ICON 'P'
+#define TRAP_ICON 'T'
+#define TREASURE_ICON 'X'
+
+#define NB_PLAYERS_MAX 2
 
 #endif //PROJET_ILE_MAUDITE_CONF_H
