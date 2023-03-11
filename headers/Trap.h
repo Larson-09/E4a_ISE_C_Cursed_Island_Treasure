@@ -22,8 +22,8 @@ Trap* Trap_init(void);
 Coordinates Trap_get_pos(Trap *this);
 
 /**
- * @brief   Free all Trap instances memory
+ * @brief   Free memory
  */
-void Trap_free_all();
+void Trap_free(Trap *this);
 
 #endif //PROJET_ILE_MAUDITE_TRAP_H

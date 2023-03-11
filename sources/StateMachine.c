@@ -83,19 +83,19 @@ static void play_again();
 static state_t current_state;
 static int nb_moves;
 static Player *player;
+static Player *pirate;
 static Trap *traps[NB_TRAPS];
 
 void SM_init(){
     current_state = ST_ACQ;
     nb_moves = 0;
 
-    // Init Player
     player = Player_init();
+    pirate = Player_init();
+    Player_set_pos(pirate, Coordinates_generate_random_coords(NB_GRID_ROWS, NB_GRID_COLS));
 
-    // Init Treasure
     Treasure_init();
 
-    // Init Map
     Map_init();
 
     for (int i = 0; i < NB_TRAPS; ++i) {
@@ -104,6 +104,7 @@ void SM_init(){
 
     Map_set_case(TREASURE_ICON, Treasure_get_pos());
     Map_set_case(PLAYER_ICON, Player_get_pos(player));
+    Map_set_case(PIRATE_ICON, Player_get_pos(pirate));
     Map_print();
 }
 
@@ -124,12 +125,14 @@ void SM_input_right(){
 }
 
 void SM_free(){
-    Player_free_all();
-    Trap_free_all();
+    Player_free(player);
     Map_free();
 
     free(player);
-    free(traps);
+    for (int i = 0; i < sizeof(traps); ++i) {
+        Trap_free(traps[i]);
+        free(traps[i]);
+    }
 }
 
 
@@ -176,9 +179,11 @@ static void perform_action(action_t action)
 
             // Check if the player walked on a trap
             Coordinates player_coords = Player_get_pos(player);
+
             for (int i = 0; i < NB_TRAPS; ++i) {
                 Coordinates trap_coords = Trap_get_pos(traps[i]);
-                if(player_coords.i == trap_coords.i && player_coords.j == trap_coords.j){
+
+                if(Coordinates_are_equals(player_coords, trap_coords)){
                     Player_lose_hp(player, 1);
                     Map_set_case(TRAP_ICON, trap_coords);
 
@@ -187,6 +192,11 @@ static void perform_action(action_t action)
                         process_input(GAME_OVER);
                     }
                 }
+
+                if(Coordinates_are_equals(player_coords, Player_get_pos(pirate))){
+                    process_input(GAME_OVER);
+                }
+
             }
 
             Coordinates treasure_coords = Treasure_get_pos();

@@ -33,6 +33,13 @@ bool Player_move(Player *this, char direction);
  */
 Coordinates Player_get_pos(Player *this);
 
+/**
+ * @brief   Set the player position
+ * @param   this    The player
+ * @param   coords  The coordinates of the position
+ */
+Coordinates Player_set_pos(Player *this, Coordinates coords);
+
 #endif //PROJET_ILE_MAUDITE_PLAYER_H
 
 /**
@@ -55,8 +62,12 @@ void Player_lose_hp(Player *this, int nb_hp);
 bool Player_is_dead(Player *this);
 
 /**
- * @brief   Free all Player instances memory
+ * @brief   free a player instance
+ * @param   this    Pointer to the player instance
  */
-void Player_free_all();
+void Player_free(Player *this);
+
+
+
 
 

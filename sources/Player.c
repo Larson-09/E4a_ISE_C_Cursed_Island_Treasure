@@ -10,20 +10,14 @@ struct Player_t
     int hp;
 };
 
-static Player *instances[NB_PLAYERS_MAX];
-static int nb_instances;
 
 static void Player_reset(Player *this);
 
 Player *Player_init(void){
-    nb_instances = 0;
 
     Player* this;
     this = malloc(sizeof(Player));
     Player_reset(this);
-
-    instances[nb_instances] = this;
-    nb_instances ++;
 
     return this;
 }
@@ -64,6 +58,10 @@ Coordinates Player_get_pos(Player *this){
     return this->coords;
 }
 
+Coordinates Player_set_pos(Player *this, Coordinates coords){
+    this->coords = coords;
+}
+
 int Player_get_hp(Player *this){
     return this->hp;
 }
@@ -76,11 +74,10 @@ bool Player_is_dead(Player *this){
     return this->hp ==0;
 }
 
-void Player_free_all(){
-    for (int i = 0; i < nb_instances; ++i) {
-        free(instances[i]);
-    }
+void Player_free(Player *this){
+    free(this);
 }
+
 
 static void Player_reset(Player *this)
 {
