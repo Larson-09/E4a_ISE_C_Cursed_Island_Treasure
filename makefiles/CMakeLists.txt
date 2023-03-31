@@ -20,4 +20,4 @@ add_executable(Projet_Ile_Maudite
         ../headers/getch.h
         ../headers/StateMachine.h
         ../sources/StateMachine.c
-        ../headers/utils/Coordinates.c ../sources/Trap.c)
+        ../sources/utils/Coordinates.c ../sources/Trap.c)

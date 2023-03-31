@@ -33,4 +33,41 @@ bool Player_move(Player *this, char direction);
  */
 Coordinates Player_get_pos(Player *this);
 
+/**
+ * @brief   Set the player position
+ * @param   this    The player
+ * @param   coords  The coordinates of the position
+ */
+Coordinates Player_set_pos(Player *this, Coordinates coords);
+
 #endif //PROJET_ILE_MAUDITE_PLAYER_H
+
+/**
+ * @brief   Returns the number of health points of the player
+ * @param   this    The player
+ * @return  Number of health points of the player
+ */
+int Player_get_hp(Player *this);
+
+/**
+ * @brief   Retrieve some health points from the player
+ */
+void Player_lose_hp(Player *this, int nb_hp);
+
+/**
+ * @brief   Check if the player is dead (0 hp)
+ * @param   this    The player
+ * @return  True if the player is dead
+ */
+bool Player_is_dead(Player *this);
+
+/**
+ * @brief   free a player instance
+ * @param   this    Pointer to the player instance
+ */
+void Player_free(Player *this);
+
+
+
+
+
