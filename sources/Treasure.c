@@ -16,3 +16,6 @@ void Treasure_init(){
 Coordinates Treasure_get_pos(){
     return coords;
 }
+
+void Treasure_free(){}
+

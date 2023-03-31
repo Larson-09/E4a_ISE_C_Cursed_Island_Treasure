@@ -14,6 +14,14 @@ typedef struct {
 }Coordinates;
 
 /**
+ * @brief   Create new coordinates (i, j)
+ * @param   max_i   Row index
+ * @param   max_j   Column index
+ * @return  The coordinates
+ */
+Coordinates Coordinates_create_coordinates(int i, int j);
+
+/**
  * @brief   Generate a random coordinates (i, j)
  * @param   max_i   The maximum value of i
  * @param   max_j   THe maximum value of j

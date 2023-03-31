@@ -30,8 +30,10 @@ void Map_print(){
     printf("\n CURSED ISLAND TREASURE \n \n");
 
     // Add treasure
-    Coordinates treasure_coords = Treasure_get_pos();
-    Map_set_case(TREASURE_ICON, treasure_coords);
+    if(SHOW_TREASURE){
+        Coordinates treasure_coords = Treasure_get_pos();
+        Map_set_case(TREASURE_ICON, treasure_coords);
+    }
 
     // Display empty grid
     for(int j= 0; j<NB_GRID_ROWS; j++)
