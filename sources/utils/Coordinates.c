@@ -8,6 +8,14 @@
 
 static bool is_timer_set = false;
 
+Coordinates Coordinates_create_coordinates(int i, int j){
+    Coordinates coords;
+    coords.i = i;
+    coords.j = j;
+
+    return coords;
+}
+
 Coordinates Coordinates_generate_random_coords(int max_i, int max_j){
 
     if(!is_timer_set){

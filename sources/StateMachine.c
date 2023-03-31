@@ -14,16 +14,22 @@
 
 
 /** Possible states of the system **/
-typedef enum {ST_FORGET = 0, ST_INIT, ST_ACQ, ST_MOVE_TOP, ST_MOVE_BOT, ST_MOVE_LEFT, ST_MOVE_RIGHT, ST_CHECK_WIN,
-              ST_END_GAME, NB_STATES} state_t;
+typedef enum {
+    ST_FORGET = 0, ST_INIT, ST_ACQ, ST_MOVE_TOP, ST_MOVE_BOT, ST_MOVE_LEFT, ST_MOVE_RIGHT, ST_CHECK_WIN,
+    ST_END_GAME, NB_STATES
+} state_t;
 
 /** Possible inputs of the system **/
-typedef enum {NOT_VALID = 0, CMD_TOP, CMD_BOT, CMD_LEFT, CMD_RIGHT, NEXT, WIN, LOSE , PLAY_AGAIN,
-              GAME_OVER, NB_INPUTS} input_t;
+typedef enum {
+    NOT_VALID = 0, CMD_TOP, CMD_BOT, CMD_LEFT, CMD_RIGHT, NEXT, WIN, LOSE, PLAY_AGAIN,
+    GAME_OVER, NB_INPUTS
+} input_t;
 
 /** Possible actions of the system **/
-typedef enum {A_NO_ACTION = 0, A_INIT, A_MOVE_TOP, A_MOVE_BOT, A_MOVE_LEFT, A_MOVE_RIGHT, A_CHECK_WIN,
-              A_END_GAME, A_GAME_OVER, NB_ACTIONS} action_t;
+typedef enum {
+    A_NO_ACTION = 0, A_INIT, A_MOVE_TOP, A_MOVE_BOT, A_MOVE_LEFT, A_MOVE_RIGHT, A_CHECK_WIN,
+    A_END_GAME, A_GAME_OVER, NB_ACTIONS
+} action_t;
 
 /** Transitions between states according to inputs **/
 typedef struct {
@@ -32,7 +38,7 @@ typedef struct {
 } transition_t;
 
 /** [INITIAL_STATE][INPUT] = [TARGET_STATE, ACTION] **/
-static transition_t tab_transition [NB_STATES][NB_INPUTS] =
+static transition_t tab_transition[NB_STATES][NB_INPUTS] =
         {
                 [ST_ACQ][CMD_TOP]           = {ST_MOVE_TOP, A_MOVE_TOP},
                 [ST_ACQ][CMD_BOT]           = {ST_MOVE_BOT, A_MOVE_BOT},
@@ -54,7 +60,7 @@ static transition_t tab_transition [NB_STATES][NB_INPUTS] =
                 [ST_END_GAME][PLAY_AGAIN]   = {ST_INIT, A_INIT},
 
                 [ST_CHECK_WIN][GAME_OVER]         = {ST_END_GAME, A_GAME_OVER}
-                };
+        };
 
 
 /**
@@ -80,13 +86,23 @@ static void manage_move(char c);
  */
 static void play_again();
 
+/**
+ * @brief   Manage pirate movement
+ */
+static void move_pirate();
+
+/**
+ * @brief   Just make a delicious coffee
+ */
+static void make_coffee();
+
 static state_t current_state;
 static int nb_moves;
 static Player *player;
 static Player *pirate;
 static Trap *traps[NB_TRAPS];
 
-void SM_init(){
+void SM_init() {
     current_state = ST_ACQ;
     nb_moves = 0;
 
@@ -102,55 +118,50 @@ void SM_init(){
         traps[i] = Trap_init();
     }
 
-    Map_set_case(TREASURE_ICON, Treasure_get_pos());
+    if(SHOW_TREASURE){
+        Map_set_case(TREASURE_ICON, Treasure_get_pos());
+    }
     Map_set_case(PLAYER_ICON, Player_get_pos(player));
     Map_set_case(PIRATE_ICON, Player_get_pos(pirate));
     Map_print();
 }
 
-void SM_input_top(){
+void SM_input_top() {
     process_input(CMD_TOP);
 }
 
-void SM_input_bot(){
+void SM_input_bot() {
     process_input(CMD_BOT);
 }
 
-void SM_input_left(){
+void SM_input_left() {
     process_input(CMD_LEFT);
 }
 
-void SM_input_right(){
+void SM_input_right() {
     process_input(CMD_RIGHT);
 }
 
-void SM_free(){
+void SM_free() {
     Player_free(player);
+    Player_free(pirate);
+    Treasure_free();
     Map_free();
-
-    free(player);
-    for (int i = 0; i < sizeof(traps); ++i) {
-        Trap_free(traps[i]);
-        free(traps[i]);
-    }
 }
 
 
-static void process_input(input_t input)
-{
+static void process_input(input_t input) {
     transition_t tr_to_do;
     tr_to_do = tab_transition[current_state][input];
 
-    if(tr_to_do.target_state != ST_FORGET) {
+    if (tr_to_do.target_state != ST_FORGET) {
         current_state = tr_to_do.target_state;
         perform_action(tr_to_do.action);
     }
 }
 
-static void perform_action(action_t action)
-{
-    switch (action)
-    {
+static void perform_action(action_t action) {
+    switch (action) {
         case A_NO_ACTION:
             break;
 
@@ -183,17 +194,17 @@ static void perform_action(action_t action)
             for (int i = 0; i < NB_TRAPS; ++i) {
                 Coordinates trap_coords = Trap_get_pos(traps[i]);
 
-                if(Coordinates_are_equals(player_coords, trap_coords)){
+                if (Coordinates_are_equals(player_coords, trap_coords)) {
                     Player_lose_hp(player, 1);
                     Map_set_case(TRAP_ICON, trap_coords);
 
                     // Check if the player is now dead
-                    if(Player_is_dead(player)){
+                    if (Player_is_dead(player)) {
                         process_input(GAME_OVER);
                     }
                 }
 
-                if(Coordinates_are_equals(player_coords, Player_get_pos(pirate))){
+                if (Coordinates_are_equals(player_coords, Player_get_pos(pirate))) {
                     process_input(GAME_OVER);
                 }
 
@@ -202,10 +213,9 @@ static void perform_action(action_t action)
             Coordinates treasure_coords = Treasure_get_pos();
             bool is_win = player_coords.i == treasure_coords.i && player_coords.j == treasure_coords.j;
 
-            if(is_win){
+            if (is_win) {
                 process_input(WIN);
-            }
-            else{
+            } else {
                 process_input(LOSE);
             }
 
@@ -226,16 +236,20 @@ static void perform_action(action_t action)
     }
 }
 
-static void manage_move(char c){
+static void manage_move(char c) {
     nb_moves += 1;
 
     Coordinates old_coords = Player_get_pos(player);
-    if(!Player_move(player, c)){
+    if (!Player_move(player, c)) {
         process_input(NOT_VALID);
-    }
-    else{
+    } else {
+        // Move player
         Map_set_case(EMPTY_CASE_ICON, old_coords);
         Map_set_case(PLAYER_ICON, Player_get_pos(player));
+
+        // Move pirate
+        move_pirate();
+
         system("clear");
         Map_print();
         printf("HP : %d\n", Player_get_hp(player));
@@ -245,19 +259,63 @@ static void manage_move(char c){
     }
 }
 
-static void play_again(){
+static void play_again() {
     char resp;
     printf("Do you want to play again ? (y/n)");
-    while (resp != 'y' && resp != 'n'){
+    while (resp != 'y' && resp != 'n') {
         scanf("%c", &resp);
     }
 
-    if(resp == 'y'){
+    if (resp == 'y') {
         process_input(PLAY_AGAIN);
-    }
-    else{
-        printf("Good bye !");
+    } else {
+        // make_coffee();
+        make_coffee();
+        printf("Good bye !\n");
+
         SM_free();
+        exit(0);
+    }
+}
+
+static void move_pirate() {
+    Coordinates player_coords = Player_get_pos(player);
+    Coordinates pirate_coords = Player_get_pos(pirate);
+
+    if (player_coords.i == pirate_coords.i) {
+        if (player_coords.j < pirate_coords.j && pirate_coords.j > 0) {
+            Map_set_case(EMPTY_CASE_ICON, pirate_coords);
+            Player_move(pirate, HOTKEY_LEFT);
+        } else if (player_coords.j > pirate_coords.j && pirate_coords.j < NB_GRID_COLS) {
+            Map_set_case(EMPTY_CASE_ICON, pirate_coords);
+            Player_move(pirate, HOTKEY_RIGHT);
+        }
+    } else if (player_coords.j == pirate_coords.j) {
+        if (player_coords.i < pirate_coords.i && pirate_coords.i > 0) {
+            Map_set_case(EMPTY_CASE_ICON, pirate_coords);
+            Player_move(pirate, HOTKEY_TOP);
+        } else if (player_coords.i > pirate_coords.i && pirate_coords.i < NB_GRID_ROWS) {
+            Map_set_case(EMPTY_CASE_ICON, pirate_coords);
+            Player_move(pirate, HOTKEY_BOT);
+        }
+
     }
 
+    Map_set_case(PIRATE_ICON, Player_get_pos(pirate));
+
+}
+
+static void make_coffee(){
+    printf("You said that a program making coffees deserved a 20/20 right ? So here it is : \n\n");
+    printf("    (  )   (   )  )\n"
+           "     ) (   )  (  (\n"
+           "     ( )  (    ) )\n"
+           "     _____________\n"
+           "    <_____________> ___\n"
+           "    |             |/ _ \\\n"
+           "    |               | | |\n"
+           "    |               |_| |\n"
+           " ___|             |\\___/\n"
+           "/    \\___________/    \\\n"
+           "\\_____________________/\n\n");
 }
